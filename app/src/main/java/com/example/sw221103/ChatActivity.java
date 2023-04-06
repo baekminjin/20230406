@@ -136,11 +136,15 @@ public class ChatActivity extends AppCompatActivity {
                 }
 
             });
-// 이미지 링크를 메시지와 함께 저장하는 코드
-            String message = "https://firebasestorage.googleapis.com/v0/b/chat-6f31f.appspot.com/o/images%2F1000001893?alt=media&token=6666f3d1-dbd4-4a6c-8732-9ef0211c4c48"; // 이미지 링크
-            String imageUrl = "<img>" + message + "</img>"; // 이미지 링크를 "<img>"와 "</img>"로 감싸서 저장
-
-
+            chat_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    String url = "https://firebasestorage.googleapis.com/v0/b/chat-6f31f.appspot.com/o/images%2F1000004518?alt=media&token=eb9108ab-4d9c-477b-96df-8eface5d1baa"; // 이동할 링크 주소
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(url));
+                    startActivity(intent);
+                }
+            });
 
         }
 
